@@ -1,7 +1,8 @@
 // Define Variables
 let ApiKey = '770c17c22dff37637fc3801ca2553323';
-let lat ;
-let lon;
+let searchBttn =  $('#searchBttn');
+let lat = $('#searchLat').val();
+let lon = $('#searchLon').val();
 let temp = $('#temp');
 let windSpeed =$('#windSpeed');
 let windGusts =$('#windGusts');
@@ -9,16 +10,18 @@ let windDeg =$('#windDeg');
 let humidity = $('#humidity');
 let uvIndex = $('#future_uvI0');
 
+searchBttn.click(updateLatLon);
+
 // Take user input and update lat and lon
-function userLatLon (lat, lon){
-lat = $('#searchLat').value;
-lon = $('#searchLon').value;
-// -43.022219
-// 147.925758
 
-}
+//Onclick update lat and lon
+function updateLatLon(lat, lon){
+ console.log("clicked");
+ lat = $('#searchLat').val();
+ lon = $('#searchLon').val();
+ runQry(lat, lon);
 
-    
+ function runQry(lat, lon){
 // Querying the URL
 let QueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely,alerts&appid=" + ApiKey + "&units=metric";
 fetch(QueryURL)
@@ -55,6 +58,11 @@ for(let i=0; i<=6; i++){
 //     iconFill();
      }
     })
+ }
+}
+
+    
+
 // ---------------------------------------------------------//
 // ---------------------------------------------------------//
 // ---------------------------------------------------------//
