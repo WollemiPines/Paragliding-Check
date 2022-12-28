@@ -12,20 +12,24 @@ let windDeg =$('#windDeg');
 let humidity = $('#humidity');
 let uvIndex = $('#future_uvI0');
 
-searchBttn.click(updateLatLon, updateFeatSpot, updateDatabase);
+searchBttn.click(updateLatLon);
+searchBttn.click(updateFeatSpot);
+searchBttn.click(updateDatabase);
 
 function updateFeatSpot(searchSpot, searchDir){
-
+console.log("updateFeatSpot");
+searchSpot = $('#searchSpot').val()
+searchDir = $('#searchDir').val()
 }
 function updateDatabase(searchSpot, searchDir, lat, lon, elevation, windMax, windMin){
-    
+console.log("updateDatabase");
 }
 
 
 
 // Take user input and update lat and lon
 function updateLatLon(lat, lon){
- console.log("clicked");
+ console.log("update Lat Lon");
  lat = $('#searchLat').val();
  lon = $('#searchLon').val();
  runQry(lat, lon);
