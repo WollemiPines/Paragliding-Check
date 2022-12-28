@@ -1,6 +1,8 @@
 // Define Variables
 let ApiKey = '770c17c22dff37637fc3801ca2553323';
 let searchBttn =  $('#searchBttn');
+let searchSpot = $('#searchSpot').val()
+let searchDir = $('#searchDir').val()
 let lat = $('#searchLat').val();
 let lon = $('#searchLon').val();
 let temp = $('#temp');
@@ -10,11 +12,18 @@ let windDeg =$('#windDeg');
 let humidity = $('#humidity');
 let uvIndex = $('#future_uvI0');
 
-searchBttn.click(updateLatLon);
+searchBttn.click(updateLatLon, updateFeatSpot, updateDatabase);
+
+function updateFeatSpot(searchSpot, searchDir){
+
+}
+function updateDatabase(searchSpot, searchDir, lat, lon, elevation, windMax, windMin){
+    
+}
+
+
 
 // Take user input and update lat and lon
-
-//Onclick update lat and lon
 function updateLatLon(lat, lon){
  console.log("clicked");
  lat = $('#searchLat').val();
@@ -153,7 +162,7 @@ function uvColorClass(){
 
         let uvSelector=$('#future_uvI'+i);
 
-        if(uvSelector.html()=0){
+        if(uvSelector.html()<=0.01){
             uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI0');
           }
         if(uvSelector.html()<=2){
