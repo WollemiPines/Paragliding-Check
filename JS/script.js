@@ -1,5 +1,6 @@
 // Define Variables
-let ApiKey = '770c17c22dff37637fc3801ca2553323';
+require('dotenv').config()
+let ApiKey = process.env.openWeatherApiKey;
 let searchBttn =  $('#searchBttn');
 let searchSpot = $('#searchSpot').val()
 let searchDir = $('#searchDir').val()
